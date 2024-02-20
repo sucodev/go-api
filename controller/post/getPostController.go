@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (p *Post) DeletePost(ctx *gin.Context) {
+func (p *PostController) GetPostController(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": "delete post",
+		"message": "get post",
 	})
 }

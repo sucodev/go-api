@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (p *Post) UpdatePost(ctx *gin.Context) {
+func (p *PostController) CreatePostController(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
-		"message": "update post",
+		"message": "get post",
 	})
 }

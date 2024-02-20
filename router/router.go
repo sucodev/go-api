@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sucodev/go-api/handler"
+	"github.com/sucodev/go-api/controller"
 )
 
 func Initialize() {
@@ -12,7 +12,7 @@ func Initialize() {
 	// Create Group Base API
 	api := router.Group("/api")
 
-	handler.IntializeHandlers(api)
+	controller.IntializeHandlers(api)
 
 	router.Run(":3333")
 }
