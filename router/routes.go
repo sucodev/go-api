@@ -1,38 +1,19 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/sucodev/go-api/handler"
 )
 
 func initializeRoutes(router *gin.Engine) {
 	api := router.Group("/api")
+	post := handler.Post{}
+
 	{
-		api.GET("/post", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "get post",
-			})
-		})
-		api.POST("/post", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "publish post",
-			})
-		})
-		api.DELETE("/post", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "delete post",
-			})
-		})
-		api.PUT("/post", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "put post",
-			})
-		})
-		api.GET("/posts", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "get all posts",
-			})
-		})
+		api.GET("/posts", post.GetPosts)
+		api.GET("/post", post.GetPosts)
+		api.POST("/post", post.CreatePost)
+		api.DELETE("/post", post.DeletePost)
+		api.PUT("/post", post.UpdatePost)
 	}
 }
