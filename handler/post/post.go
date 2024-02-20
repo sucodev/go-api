@@ -1,13 +1,13 @@
-package router
+package post
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sucodev/go-api/handler"
 )
 
-func initializeRoutes(router *gin.Engine) {
-	api := router.Group("/api")
-	post := handler.Post{}
+type Post struct{}
+
+func InitializePostRouter(api *gin.RouterGroup) {
+	post := Post{}
 
 	{
 		api.GET("/posts", post.GetPosts)
