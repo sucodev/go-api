@@ -1,12 +1,16 @@
 package controller
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/sucodev/go-api/controller/post"
+	"github.com/sucodev/go-api/config"
+	"gorm.io/gorm"
 )
 
-func IntializeHandlers(api *gin.RouterGroup) {
-	// Make a call for the POST package handler
-	post.InitializePostRouter(api)
-	// user.InitializeUserRouter(api)
+var (
+	logger *config.Logger
+	db     *gorm.DB
+)
+
+func IntializeControllers() {
+	logger = config.GetLogger("controller")
+	db = config.GetSqlite()
 }

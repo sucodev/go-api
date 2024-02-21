@@ -9,10 +9,14 @@ func Initialize() {
 	// Declaration Router
 	router := gin.Default()
 
+	// Initialize Controller
+	controller.IntializeControllers()
+
 	// Create Group Base API
 	api := router.Group("/api")
-
-	controller.IntializeHandlers(api)
+	{
+		api.POST("/post", controller.CreatePostController)
+	}
 
 	router.Run(":3333")
 }
